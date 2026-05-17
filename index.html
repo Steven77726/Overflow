@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06111f" />
+    <title>Overflow</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop" id="backdrop"></div>
+    <aside class="side-menu" id="sideMenu" aria-hidden="true">
+      <div class="menu-head">
+        <span class="logo-mark">∞</span>
+        <strong>Overflow</strong>
+      </div>
+      <nav id="menuNav">
+        <button data-view="home">Home</button>
+        <button data-view="today">Programme du jour</button>
+        <button data-view="week">Programme semaine</button>
+        <button data-view="ideas">Idées</button>
+        <button data-view="people">Personnes</button>
+        <button data-view="places">Lieux</button>
+        <button data-view="important">Important</button>
+        <button data-view="sent">Envoyés</button>
+        <button data-view="secret">Secret Garden</button>
+        <button data-view="settings">Paramètres</button>
+      </nav>
+    </aside>
+
+    <main class="app-shell">
+      <header class="app-header">
+        <button class="brand" id="logoButton" aria-label="Retour Home">
+          <span class="logo-mark">∞</span>
+          <span>Overflow</span>
+        </button>
+        <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <section class="view hero active" id="homeView">
+        <p class="eyebrow">Mémoire IA personnelle</p>
+        <h1>Parle ou écris naturellement.</h1>
+        <p class="intro">Overflow organise tout pour toi.</p>
+
+        <form class="composer" id="composer">
+          <label class="sr-only" for="thoughtInput">Dis-moi</label>
+          <textarea id="thoughtInput" rows="1" placeholder="Dis-moi..." autocomplete="off"></textarea>
+          <div class="composer-actions">
+            <button class="mic-button" id="micButton" type="button" aria-label="Démarrer la dictée vocale">
+              <span class="mic-glyph"></span>
+            </button>
+            <button class="send-button" id="sendButton" type="submit">Dis-moi tout</button>
+          </div>
+        </form>
+        <p class="voice-status" id="voiceStatus">Prêt.</p>
+
+        <div class="examples" id="examples">
+          <button type="button">Rappelle-moi d'appeler Gabriel demain</button>
+          <button type="button">Note une idée pour Winess</button>
+          <button type="button">J'ai vu David à Levallois pour parler d'une soirée</button>
+        </div>
+
+        <section class="quick-search">
+          <div class="section-title">
+            <p>Recherche rapide</p>
+            <span>Accède à ce qu'Overflow a compris.</span>
+          </div>
+          <div class="quick-grid" id="quickGrid">
+            <button data-view="today">Programme du jour</button>
+            <button data-view="week">Programme de la semaine</button>
+            <button data-view="ideas">Idées</button>
+            <button data-view="places">Endroits</button>
+            <button data-view="important">Important</button>
+            <button data-view="places">Lieux</button>
+            <button data-view="people">Personnes</button>
+            <button data-view="sent">Envoyés</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="view detail-view" id="detailView" aria-live="polite">
+        <button class="back-button" id="backHome">← Home</button>
+        <p class="eyebrow" id="detailKicker">Recherche rapide</p>
+        <h2 id="detailTitle">Programme du jour</h2>
+        <p class="detail-summary" id="detailSummary"></p>
+        <div class="notes-list" id="notesList"></div>
+        <div class="suggestions" id="suggestions"></div>
+      </section>
+
+      <section class="view tasks-view" id="tasksView">
+        <button class="back-button" data-home>← Home</button>
+        <p class="eyebrow">Tâches intelligentes</p>
+        <h2>À faire</h2>
+        <div class="task-filters" id="taskFilters">
+          <button class="active" data-filter="all">Toutes</button>
+          <button data-filter="open">En cours</button>
+          <button data-filter="done">Terminées</button>
+          <button data-filter="important">Importantes</button>
+        </div>
+        <div class="task-list" id="taskList"></div>
+      </section>
+
+      <section class="view search-view" id="searchView">
+        <button class="back-button" data-home>← Home</button>
+        <p class="eyebrow">Recherche intelligente</p>
+        <h2>Pose une question à ta mémoire.</h2>
+        <form class="search-box" id="searchForm">
+          <input id="smartSearch" placeholder="Quand ai-je parlé de Gabriel ?" />
+          <button type="submit">Chercher</button>
+        </form>
+        <p class="ai-answer" id="aiAnswer">Exemples : projets liés à Winess, idées cocktails, tâches importantes cette semaine.</p>
+      </section>
+
+      <section class="view secret-view" id="secretView">
+        <button class="back-button" data-home>← Home</button>
+        <div class="secret-lock" id="secretLock">
+          <div class="face-icon"><span></span><span></span><i></i></div>
+          <p>Face ID simulé</p>
+          <button id="unlockSecret">Déverrouiller</button>
+        </div>
+        <div class="secret-content" id="secretContent" hidden>
+          <p class="eyebrow">Secret Garden</p>
+          <h2>Privé, discret, séparé.</h2>
+          <div class="notes-list">
+            <article><strong>Pensée personnelle</strong><span>Visible uniquement ici. Jamais dans la Home, jamais dans les notifications.</span></article>
+            <article><strong>Idée sensible</strong><span>Classée comme privée et isolée de la mémoire publique.</span></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
