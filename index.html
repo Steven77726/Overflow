@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overflow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <section class="phone" aria-label="Overflow app preview">
+        <div class="island"></div>
+
+        <header class="topbar">
+          <button class="icon-button" id="menuButton" aria-label="Menu">☰</button>
+          <button class="brand" id="logoButton" aria-label="Retour accueil">
+            <span class="logo-mark">∞</span>
+            <span>Overflow</span>
+          </button>
+          <button class="icon-button" id="bellButton" aria-label="Cloche">🔔</button>
+        </header>
+
+        <section class="screen active" id="homeScreen" data-screen="home">
+          <div class="home-core">
+            <div class="voice-bar" id="voiceBar">
+              <span>Dis-moi tout</span>
+              <button class="mic-button" id="micButton" aria-label="Activer le chat vocal">
+                <span class="mic-glyph"></span>
+              </button>
+            </div>
+            <p class="subtitle">Dis-moi ce que tu ne veux pas oublier.</p>
+            <p class="voice-status" id="voiceStatus">écoute prête</p>
+          </div>
+
+          <div class="living-line" id="memoryLine">
+            <button class="smart-inline" data-memory="gabriel">Gabriel</button>
+            avait laissé une idée de
+            <button class="smart-inline" data-memory="peniche">soirée péniche</button>
+            en attente.
+          </div>
+        </section>
+
+        <section class="screen" id="morningScreen" data-screen="morning">
+          <button class="notification-pill" id="morningPill">☀️ Ta journée est prête</button>
+          <div class="morning-content">
+            <h1>Bonjour Steven</h1>
+            <div class="day-list">
+              <p>📦 Veste Sandro — point relais</p>
+              <p>🍽 <button class="smart-inline" data-memory="noubba">Noubba — Levallois</button> avec <button class="smart-inline" data-memory="didier">Didier</button> — 13h</p>
+              <p>📞 <button class="smart-inline" data-memory="jonathan">Jonathan Cohen</button> — 15h</p>
+              <p>🍷 Tu avais dit cette semaine qu'il ne fallait pas oublier le <button class="smart-inline" data-memory="shabbat">vin pour Shabbat</button>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="eveningScreen" data-screen="evening">
+          <div class="evening-content">
+            <h1>🌙 Avant de fermer aujourd'hui</h1>
+            <button class="check-row" data-check="false"><span>📦 Veste Sandro</span><b>⬜</b></button>
+            <button class="check-row done" data-check="true"><span>🏠 Ranger maison</span><b>✅</b></button>
+            <button class="check-row" data-check="false"><span>🏋️ Sport</span><b>⬜</b></button>
+          </div>
+        </section>
+
+        <section class="screen" id="secretScreen" data-screen="secret">
+          <div class="face-lock" id="faceLock">
+            <div class="face-icon">
+              <span></span><span></span><i></i>
+            </div>
+            <p>Face ID</p>
+          </div>
+          <div class="secret-content" id="secretContent">
+            <h1>Secret Garden</h1>
+            <div class="secret-grid">
+              <button>personnes</button>
+              <button>lieux</button>
+              <button>souvenirs</button>
+              <button>émotions</button>
+            </div>
+            <p class="private-note">Ici, rien ne remonte dans l'accueil. Rien ne fuit.</p>
+          </div>
+        </section>
+
+        <div class="sheet" id="memorySheet" aria-hidden="true">
+          <button class="sheet-close" id="closeSheet" data-testid="close-sheet" aria-label="Fermer">×</button>
+          <p class="person" id="sheetTitle">Gabriel</p>
+          <h2 id="sheetKicker">Ce que j'ai retrouvé :</h2>
+          <blockquote id="sheetSummary"></blockquote>
+          <div class="proposal" id="sheetProposal"></div>
+          <div class="topic-list" id="topicList"></div>
+          <div class="chips" id="sheetChips"></div>
+        </div>
+
+        <div class="popover" id="bellPopover" aria-hidden="true">
+          <p>📞 <button class="smart-inline" data-memory="didier">Didier</button> a essayé de te joindre récemment</p>
+          <p>🎉 <button class="smart-inline" data-memory="gabriel">Gabriel</button> avait parlé d'une <button class="smart-inline" data-memory="peniche">soirée péniche</button></p>
+          <p>🍷 Quelque chose semblait important pour <button class="smart-inline" data-memory="shabbat">vendredi</button></p>
+        </div>
+
+        <nav class="menu-panel" id="menuPanel" aria-hidden="true">
+          <button data-target="morning">☀️ Ma journée</button>
+          <button data-target="home">🎤 Parler maintenant</button>
+          <button data-target="secret">🌙 Secret Garden</button>
+          <button data-target="home" data-open-memory="true">📞 Dernier élément important</button>
+          <button>⚙️ Réglages</button>
+        </nav>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
